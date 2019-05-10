@@ -5,8 +5,8 @@ class Server
         foreach ($Prop in [Server]::_properties)
         {
             $this | Add-Member ScriptProperty -Name $Prop -Value {
-                2 + 2
-            }
+                $Prop
+            }.GetNewClosure()
         }
     }
 
@@ -28,4 +28,4 @@ $s
 
 # Foo Bar Baz
 # --- --- ---
-#   4   4   4
+# Foo Bar Baz
